@@ -238,30 +238,27 @@ function lockScreenOrientation() {
 
 function _checkOrientation(iWidth, iHeight) {
     // Call this function when the page is loaded and s_bMobile is true
-    if (s_bMobile) {
-        lockScreenOrientation();
-    }
+
     if (s_bMobile && ENABLE_CHECK_ORIENTATION) {
         if (iWidth > iHeight) {
             if ($(".orientation-msg-container").attr("data-orientation") === "landscape") {
                 $(".orientation-msg-container").css("display", "none");
+                document.querySelector('canvas').style.transform = ""
                 s_oMain.startUpdate();
             } else {
-                lockScreenOrientation();
-
-                $(".orientation-msg-container").css("display", "block");
-
-                s_oMain.stopUpdate();
+                document.querySelector('canvas').style.transform = "rotate(90deg)"
+                // $(".orientation-msg-container").css("display", "block");
+                // s_oMain.stopUpdate();
             }
         } else {
             if ($(".orientation-msg-container").attr("data-orientation") === "portrait") {
                 $(".orientation-msg-container").css("display", "none");
+                document.querySelector('canvas').style.transform = ""
                 s_oMain.startUpdate();
             } else {
-                lockScreenOrientation();
-
-                $(".orientation-msg-container").css("display", "block");
-                s_oMain.stopUpdate();
+                document.querySelector('canvas').style.transform = "rotate(90deg)"
+                // $(".orientation-msg-container").css("display", "block");
+                // s_oMain.stopUpdate();
             }
         }
     }
