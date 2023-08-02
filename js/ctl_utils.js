@@ -226,10 +226,10 @@ function lockScreenOrientation() {
         screen.orientation
             .lock("landscape")
             .then(function () {
-                console.log("Screen orientation locked to landscape.");
+                alert("Screen orientation locked to landscape.");
             })
             .catch(function (error) {
-                console.log("Failed to lock screen orientation:", error);
+                alert("Failed to lock screen orientation:", error);
             });
     }
 }
