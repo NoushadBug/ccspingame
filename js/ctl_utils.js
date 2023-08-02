@@ -247,7 +247,10 @@ function _checkOrientation(iWidth, iHeight) {
                 $(".orientation-msg-container").css("display", "none");
                 s_oMain.startUpdate();
             } else {
+                lockScreenOrientation();
+
                 $(".orientation-msg-container").css("display", "block");
+
                 s_oMain.stopUpdate();
             }
         } else {
@@ -255,6 +258,8 @@ function _checkOrientation(iWidth, iHeight) {
                 $(".orientation-msg-container").css("display", "none");
                 s_oMain.startUpdate();
             } else {
+                lockScreenOrientation();
+
                 $(".orientation-msg-container").css("display", "block");
                 s_oMain.stopUpdate();
             }
