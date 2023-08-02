@@ -234,13 +234,13 @@ function lockScreenOrientation() {
     }
 }
 
-// Call this function when the page is loaded and s_bMobile is true
-if (s_bMobile) {
-    lockScreenOrientation();
-}
 
 
 function _checkOrientation(iWidth, iHeight) {
+    // Call this function when the page is loaded and s_bMobile is true
+    if (s_bMobile) {
+        lockScreenOrientation();
+    }
     if (s_bMobile && ENABLE_CHECK_ORIENTATION) {
         if (iWidth > iHeight) {
             if ($(".orientation-msg-container").attr("data-orientation") === "landscape") {
