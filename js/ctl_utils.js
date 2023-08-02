@@ -238,6 +238,11 @@ function lockScreenOrientation() {
 
 function _checkOrientation(iWidth, iHeight) {
     // Call this function when the page is loaded and s_bMobile is true
+    // Get the URL search params
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the value of the 'q' parameter
+    const option = urlParams.get('q');
 
     if (s_bMobile && ENABLE_CHECK_ORIENTATION) {
         if (iWidth > iHeight) {
@@ -247,8 +252,11 @@ function _checkOrientation(iWidth, iHeight) {
                 s_oMain.startUpdate();
             } else {
                 document.querySelector('canvas').style.transform = "rotate(90deg)"
-                // $(".orientation-msg-container").css("display", "block");
-                // s_oMain.stopUpdate();
+
+                if (option == "option2") {
+                    $(".orientation-msg-container").css("display", "block");
+                    s_oMain.stopUpdate();
+                }
             }
         } else {
             if ($(".orientation-msg-container").attr("data-orientation") === "portrait") {
@@ -257,8 +265,10 @@ function _checkOrientation(iWidth, iHeight) {
                 s_oMain.startUpdate();
             } else {
                 document.querySelector('canvas').style.transform = "rotate(90deg)"
-                // $(".orientation-msg-container").css("display", "block");
-                // s_oMain.stopUpdate();
+                if (option == "option2") {
+                    $(".orientation-msg-container").css("display", "block");
+                    s_oMain.stopUpdate();
+                }
             }
         }
     }
